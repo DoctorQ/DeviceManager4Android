@@ -8,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.android.ddmlib.IDevice;
 import com.wuba.device.IDeviceManager.FreeDeviceState;
 
 /**
@@ -39,6 +40,12 @@ public class DeviceManagerTest {
 		}
 		Thread.sleep(200 * 1000);
 		deviceManager.freeDevice(device, FreeDeviceState.AVAILABLE);
+	}
+	
+	@Test
+	public void avaliableIDevice() throws InterruptedException {
+		IDevice[] devices = deviceManager.getAvailableIDevices();
+		LOG.info("设备大小: " + devices.length);
 	}
 
 	@AfterClass

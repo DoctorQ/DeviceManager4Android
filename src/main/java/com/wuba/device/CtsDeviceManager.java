@@ -907,6 +907,26 @@ public class CtsDeviceManager implements IDeviceManager {
 		return availableDeviceSerials;
 	}
 
+	public IDevice[] getAvailableIDevices() {
+		checkInit();
+		Collection<IDevice> availableDeviceSerials = new ArrayList<IDevice>(
+				mAvailableDeviceQueue.size());
+		synchronized (mAvailableDeviceQueue) {
+			for (IDevice device : mAvailableDeviceQueue) {
+				// don't add placeholder devices to available devices display
+				if (!(device instanceof StubDevice)) {
+					availableDeviceSerials.add(device);
+				}
+			}
+		}
+		IDevice[] devices = new IDevice[availableDeviceSerials.size()];
+		int i = 0;
+		for (IDevice device : availableDeviceSerials) {
+			devices[i] = device;
+		}
+		return devices;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -1214,6 +1234,23 @@ public class CtsDeviceManager implements IDeviceManager {
 			serials.add(fastbootMatcher.group(1));
 		}
 		return serials;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.wuba.device.IDeviceManager#registerObserver(com.wuba.device.IDeviceStateObserver)
+	 */
+	public void registerObserver(IDeviceStateObserver observer) {
+		// TODO Auto-generated method stub
+		mDvcMon.registerObserver(observer);
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.wuba.device.IDeviceManager#removeObserver(com.wuba.device.IDeviceStateObserver)
+	 */
+	public void removeObserver(IDeviceStateObserver observer) {
+		// TODO Auto-generated method stub
+		mDvcMon.removeObserver(observer);
 	}
 
 }

@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.android.ddmlib.AndroidDebugBridge;
+import com.android.ddmlib.IDevice;
 import com.wuba.utils.IRunUtil;
 
 /**
@@ -247,5 +248,9 @@ public interface IDeviceManager {
      * @param listener
      */
     public void removeFastbootListener(IFastbootListener listener);
+    public IDevice[] getAvailableIDevices();
+    
+    public void registerObserver(IDeviceStateObserver observer);
 
+	public void removeObserver(IDeviceStateObserver observer);
 }

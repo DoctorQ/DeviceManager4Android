@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.wuba.device;
+package com.wuba.utils;
 
 import com.android.ddmlib.FileListingService;
 import com.android.ddmlib.FileListingService.FileEntry;
+import com.wuba.device.DeviceNotAvailableException;
 
 import java.util.Collection;
 

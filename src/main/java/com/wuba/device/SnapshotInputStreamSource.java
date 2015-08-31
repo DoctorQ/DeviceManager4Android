@@ -20,6 +20,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.wuba.utils.FileUtil;
+
 /**
  * A File-backed InputStreamSource. Creates a snapshot of original
  * {@link InputStream} contents to ensure that {@link #createInputStream()} will

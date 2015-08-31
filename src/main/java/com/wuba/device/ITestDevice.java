@@ -27,6 +27,7 @@ import com.android.ddmlib.IDevice;
 import com.android.ddmlib.IShellOutputReceiver;
 import com.android.ddmlib.testrunner.IRemoteAndroidTestRunner;
 import com.android.ddmlib.testrunner.ITestRunListener;
+import com.wuba.utils.IFileEntry;
 
 /**
  * Provides an reliable and slightly higher level API to a ddmlib {@link IDevice}.

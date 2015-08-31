@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuba.device;
+package com.wuba.utils;
 
 import java.util.Arrays;
 

@@ -23,6 +23,7 @@ import java.io.InputStream;
 import org.apache.log4j.Logger;
 
 import com.android.ddmlib.IShellOutputReceiver;
+import com.wuba.utils.StreamUtil;
 
 /**
  * A class designed to help run long running commands collect output.

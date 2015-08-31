@@ -25,6 +25,8 @@ import com.android.ddmlib.AdbCommandRejectedException;
 import com.android.ddmlib.IShellOutputReceiver;
 import com.android.ddmlib.ShellCommandUnresponsiveException;
 import com.android.ddmlib.TimeoutException;
+import com.wuba.utils.IRunUtil;
+import com.wuba.utils.RunUtil;
 
 /**
  * Runs a command on a given device repeating as necessary until the action is canceled.

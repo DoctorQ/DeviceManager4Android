@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.wuba.device;
+package com.wuba.utils;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -25,6 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+
+import com.wuba.device.CommandResult;
+import com.wuba.device.CommandStatus;
+import com.wuba.utils.IRunUtil.IRunnableResult;
 
 /**
  * A collection of helper methods for executing operations.

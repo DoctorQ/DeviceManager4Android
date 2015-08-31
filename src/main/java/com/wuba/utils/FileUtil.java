@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.wuba.device;
+package com.wuba.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -43,6 +43,9 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.log4j.Logger;
 
 import com.android.ddmlib.Log;
+import com.wuba.device.CommandResult;
+import com.wuba.device.CommandStatus;
+import com.wuba.device.FatalHostError;
 
 /**
  * A helper class for file related operations

@@ -15,13 +15,14 @@
  */
 package com.wuba.device;
 
-import com.android.ddmlib.FileListingService;
-import com.android.ddmlib.FileListingService.FileEntry;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.android.ddmlib.FileListingService;
+import com.android.ddmlib.FileListingService.FileEntry;
+import com.wuba.utils.IFileEntry;
 
 /**
  * Implementation of a {@link IFileEntry}.

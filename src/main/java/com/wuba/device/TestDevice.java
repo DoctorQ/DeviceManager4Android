@@ -55,6 +55,12 @@ import com.android.ddmlib.TimeoutException;
 import com.android.ddmlib.testrunner.IRemoteAndroidTestRunner;
 import com.android.ddmlib.testrunner.ITestRunListener;
 import com.wuba.device.DumpsysPackageParser.PackageInfo;
+import com.wuba.utils.ArrayUtil;
+import com.wuba.utils.FileUtil;
+import com.wuba.utils.IFileEntry;
+import com.wuba.utils.IRunUtil;
+import com.wuba.utils.RunUtil;
+import com.wuba.utils.StreamUtil;
 
 /**
  * Default implementation of a {@link ITestDevice}

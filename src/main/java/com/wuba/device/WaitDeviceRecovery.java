@@ -23,6 +23,8 @@ import com.android.ddmlib.AdbCommandRejectedException;
 import com.android.ddmlib.IDevice;
 import com.android.ddmlib.Log;
 import com.android.ddmlib.TimeoutException;
+import com.wuba.utils.IRunUtil;
+import com.wuba.utils.RunUtil;
 
 /**
  * A simple implementation of a {@link IDeviceRecovery} that waits for device to

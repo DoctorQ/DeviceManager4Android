@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.android.ddmlib.AndroidDebugBridge;
+import com.wuba.utils.IRunUtil;
 
 /**
  * Interface for managing the set of available devices for testing.

@@ -42,6 +42,10 @@ import com.android.ddmlib.Log;
 import com.android.ddmlib.Log.LogLevel;
 import com.wuba.device.ConditionPriorityBlockingQueue.IMatcher;
 import com.wuba.device.IDeviceMonitor.DeviceLister;
+import com.wuba.utils.ArrayUtil;
+import com.wuba.utils.IRunUtil;
+import com.wuba.utils.RunUtil;
+import com.wuba.utils.StreamUtil;
 
 /**
  * {@inheritDoc}

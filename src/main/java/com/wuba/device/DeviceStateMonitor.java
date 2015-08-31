@@ -29,6 +29,8 @@ import com.android.ddmlib.Log;
 import com.android.ddmlib.ShellCommandUnresponsiveException;
 import com.android.ddmlib.TimeoutException;
 import com.wuba.device.IDeviceManager.IFastbootListener;
+import com.wuba.utils.IRunUtil;
+import com.wuba.utils.RunUtil;
 
 /**
  * Helper class for monitoring the state of a {@link IDevice}.

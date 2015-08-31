@@ -29,6 +29,7 @@ import java.io.OutputStream;
 import java.io.SequenceInputStream;
 
 import com.google.common.io.CountingOutputStream;
+import com.wuba.utils.FileUtil;
 
 /**
  * A thread safe file backed {@link OutputStream} that limits the maximum amount of data that can be

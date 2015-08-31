@@ -1,0 +1,8 @@
+bin/
+.settings/
+.classpath
+.project
+.alog
+.alog.*
+test-output/
+.gradle/

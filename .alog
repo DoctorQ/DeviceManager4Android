@@ -1,0 +1,186 @@
+2015-08-27 16:06:47 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:06:47 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:06:47 DEBUG class:1187-fastboot devices returned
+ 
+2015-08-27 16:06:47 INFO  class:45-设备状态发生改变
+2015-08-27 16:06:47 INFO  class:45-设备状态发生改变
+2015-08-27 16:06:47 DEBUG class:1044-Detected device connect ZX1G42C39V, id 1044388609
+2015-08-27 16:14:02 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:14:02 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:14:02 DEBUG class:1189-fastboot devices returned
+ 
+2015-08-27 16:14:02 INFO  class:45-设备状态发生改变
+2015-08-27 16:14:02 INFO  class:45-设备状态发生改变
+2015-08-27 16:14:02 DEBUG class:1046-Detected device connect ZX1G42C39V, id 1266538792
+2015-08-27 16:14:02 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:14:02 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:14:02 INFO  class:45-设备状态发生改变
+2015-08-27 16:14:08 INFO  class:1084-Removed disconnected device ZX1G42C39V from available queue
+2015-08-27 16:14:08 INFO  class:45-设备状态发生改变
+2015-08-27 16:14:12 DEBUG class:1046-Detected device connect ZX1G42C39V, id 1821831627
+2015-08-27 16:14:12 INFO  class:1019-Device connected ZX1G42C39V
+2015-08-27 16:14:12 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:14:12 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:14:12 INFO  class:45-设备状态发生改变
+2015-08-27 16:18:35 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:18:35 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:18:35 DEBUG class:1189-fastboot devices returned
+ 
+2015-08-27 16:18:35 INFO  class:45-设备状态发生改变
+2015-08-27 16:18:35 INFO  class:45-设备状态发生改变
+2015-08-27 16:18:35 DEBUG class:1046-Detected device connect ZX1G42C39V, id 1655504532
+2015-08-27 16:18:35 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:18:35 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:18:35 INFO  class:45-设备状态发生改变
+2015-08-27 16:18:52 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1821831627
+2015-08-27 16:19:00 INFO  class:1019-Device connected 4df178cc14cd8ff1
+2015-08-27 16:19:00 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:19:00 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:19:00 INFO  class:45-设备状态发生改变
+2015-08-27 16:19:10 INFO  class:1084-Removed disconnected device 4df178cc14cd8ff1 from available queue
+2015-08-27 16:19:10 INFO  class:45-设备状态发生改变
+2015-08-27 16:19:16 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1192385090
+2015-08-27 16:19:19 INFO  class:1019-Device connected 4df178cc14cd8ff1
+2015-08-27 16:19:19 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:19:19 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:19:19 INFO  class:45-设备状态发生改变
+2015-08-27 16:19:40 INFO  class:1084-Removed disconnected device 4df178cc14cd8ff1 from available queue
+2015-08-27 16:19:40 INFO  class:45-设备状态发生改变
+2015-08-27 16:19:45 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1118527618
+2015-08-27 16:19:45 INFO  class:1019-Device connected 4df178cc14cd8ff1
+2015-08-27 16:19:45 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:19:45 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:19:45 INFO  class:45-设备状态发生改变
+2015-08-27 16:19:58 INFO  class:1084-Removed disconnected device 4df178cc14cd8ff1 from available queue
+2015-08-27 16:19:58 INFO  class:45-设备状态发生改变
+2015-08-27 16:20:02 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 263661737
+2015-08-27 16:20:02 INFO  class:1019-Device connected 4df178cc14cd8ff1
+2015-08-27 16:20:02 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:20:02 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:20:02 INFO  class:45-设备状态发生改变
+2015-08-27 16:20:06 INFO  class:1084-Removed disconnected device ZX1G42C39V from available queue
+2015-08-27 16:20:06 INFO  class:45-设备状态发生改变
+2015-08-27 16:20:10 DEBUG class:1046-Detected device connect ZX1G42C39V, id 857642591
+2015-08-27 16:20:10 INFO  class:1019-Device connected ZX1G42C39V
+2015-08-27 16:20:10 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:20:10 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:20:10 INFO  class:45-设备状态发生改变
+2015-08-27 16:31:05 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:31:05 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:31:05 DEBUG class:1189-fastboot devices returned
+ 
+2015-08-27 16:31:05 INFO  class:45-设备状态发生改变
+2015-08-27 16:31:05 INFO  class:45-设备状态发生改变
+2015-08-27 16:31:05 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1834300855
+2015-08-27 16:31:05 DEBUG class:1046-Detected device connect ZX1G42C39V, id 1258932632
+2015-08-27 16:31:05 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:31:05 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:31:05 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:31:05 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:31:05 INFO  class:45-设备状态发生改变
+2015-08-27 16:31:05 INFO  class:45-设备状态发生改变
+2015-08-27 16:31:19 INFO  class:1084-Removed disconnected device ZX1G42C39V from available queue
+2015-08-27 16:31:19 INFO  class:45-设备状态发生改变
+2015-08-27 16:31:28 DEBUG class:1046-Detected device connect ZX1G42C39V, id 488788273
+2015-08-27 16:31:28 INFO  class:1019-Device connected ZX1G42C39V
+2015-08-27 16:31:28 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:31:28 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:31:28 INFO  class:45-设备状态发生改变
+2015-08-27 16:34:00 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:34:00 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:34:00 DEBUG class:1189-fastboot devices returned
+ 
+2015-08-27 16:34:00 INFO  class:46-设备状态发生改变
+2015-08-27 16:34:00 INFO  class:46-设备状态发生改变
+2015-08-27 16:34:00 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1778018115
+2015-08-27 16:34:00 DEBUG class:1046-Detected device connect ZX1G42C39V, id 1525821837
+2015-08-27 16:34:00 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:34:00 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:34:00 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:34:00 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:34:00 INFO  class:46-设备状态发生改变
+2015-08-27 16:34:00 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:10 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:35:10 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:35:10 DEBUG class:1189-fastboot devices returned
+ 
+2015-08-27 16:35:10 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:10 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:10 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1098382428
+2015-08-27 16:35:10 DEBUG class:1046-Detected device connect ZX1G42C39V, id 859568080
+2015-08-27 16:35:10 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:35:10 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:35:10 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:35:10 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:35:10 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:10 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:13 DEBUG class:509-Allocated device ZX1G42C39V
+2015-08-27 16:35:13 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:35:13 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:13 INFO  class:36-ONLINE
+2015-08-27 16:35:18 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:35:19 DEBUG class:2481-Device ZX1G42C39V state is now NOT_AVAILABLE
+2015-08-27 16:35:19 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:19 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:35:24 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:35:24 DEBUG class:102-com.android.ddmlib.AdbCommandRejectedException while running logcat on ZX1G42C39V. May see duplicated content in log.
+2015-08-27 16:35:25 DEBUG class:1046-Detected device connect ZX1G42C39V, id 484694709
+2015-08-27 16:35:25 DEBUG class:1065-Updating IDevice for device ZX1G42C39V
+2015-08-27 16:35:25 DEBUG class:2481-Device ZX1G42C39V state is now OFFLINE
+2015-08-27 16:35:25 INFO  class:1019-Device connected ZX1G42C39V
+2015-08-27 16:35:25 DEBUG class:2481-Device ZX1G42C39V state is now ONLINE
+2015-08-27 16:35:29 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:35:34 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:35:52 INFO  class:1084-Removed disconnected device 4df178cc14cd8ff1 from available queue
+2015-08-27 16:35:52 INFO  class:46-设备状态发生改变
+2015-08-27 16:35:57 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 484145598
+2015-08-27 16:35:57 INFO  class:1019-Device connected 4df178cc14cd8ff1
+2015-08-27 16:35:57 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:35:57 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:35:57 INFO  class:46-设备状态发生改变
+2015-08-27 16:37:57 DEBUG class:2481-Device ZX1G42C39V state is now NOT_AVAILABLE
+2015-08-27 16:37:57 INFO  class:46-设备状态发生改变
+2015-08-27 16:37:57 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:38:02 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:38:02 DEBUG class:102-com.android.ddmlib.AdbCommandRejectedException while running logcat on ZX1G42C39V. May see duplicated content in log.
+2015-08-27 16:38:13 DEBUG class:1046-Detected device connect ZX1G42C39V, id 1375614346
+2015-08-27 16:38:13 DEBUG class:1065-Updating IDevice for device ZX1G42C39V
+2015-08-27 16:38:13 DEBUG class:2481-Device ZX1G42C39V state is now OFFLINE
+2015-08-27 16:38:13 INFO  class:1019-Device connected ZX1G42C39V
+2015-08-27 16:38:13 DEBUG class:2481-Device ZX1G42C39V state is now ONLINE
+2015-08-27 16:38:13 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:38:18 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:57:18 DEBUG class:326-Running [fastboot, help]
+2015-08-27 16:57:18 DEBUG class:326-Running [fastboot, devices]
+2015-08-27 16:57:18 DEBUG class:1189-fastboot devices returned
+ 
+2015-08-27 16:57:18 INFO  class:46-设备状态发生改变
+2015-08-27 16:57:18 INFO  class:46-设备状态发生改变
+2015-08-27 16:57:18 DEBUG class:1046-Detected device connect 4df178cc14cd8ff1, id 1006873592
+2015-08-27 16:57:18 DEBUG class:1046-Detected device connect ZX1G42C39V, id 548928952
+2015-08-27 16:57:18 DEBUG class:266-checking new device 4df178cc14cd8ff1 responsiveness
+2015-08-27 16:57:18 DEBUG class:266-checking new device ZX1G42C39V responsiveness
+2015-08-27 16:57:18 INFO  class:156-Waiting 30000 ms for device 4df178cc14cd8ff1 shell to be responsive
+2015-08-27 16:57:18 INFO  class:156-Waiting 30000 ms for device ZX1G42C39V shell to be responsive
+2015-08-27 16:57:18 INFO  class:46-设备状态发生改变
+2015-08-27 16:57:18 INFO  class:46-设备状态发生改变
+2015-08-27 16:57:21 DEBUG class:509-Allocated device ZX1G42C39V
+2015-08-27 16:57:21 INFO  class:46-设备状态发生改变
+2015-08-27 16:57:21 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:57:21 INFO  class:38-ONLINE
+2015-08-27 16:57:26 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:58:25 DEBUG class:2481-Device ZX1G42C39V state is now NOT_AVAILABLE
+2015-08-27 16:58:25 INFO  class:46-设备状态发生改变
+2015-08-27 16:58:25 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:58:30 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 16:58:30 DEBUG class:102-com.android.ddmlib.AdbCommandRejectedException while running logcat on ZX1G42C39V. May see duplicated content in log.
+2015-08-27 16:58:33 DEBUG class:1046-Detected device connect ZX1G42C39V, id 793741660
+2015-08-27 16:58:33 DEBUG class:1065-Updating IDevice for device ZX1G42C39V
+2015-08-27 16:58:33 DEBUG class:2481-Device ZX1G42C39V state is now OFFLINE
+2015-08-27 16:58:33 INFO  class:1019-Device connected ZX1G42C39V
+2015-08-27 16:58:33 DEBUG class:2481-Device ZX1G42C39V state is now ONLINE
+2015-08-27 16:58:35 DEBUG class:82-Sleep for 5000 before starting logcat for ZX1G42C39V.
+2015-08-27 16:58:40 DEBUG class:86-Starting logcat for ZX1G42C39V.
+2015-08-27 17:00:41 INFO  class:46-设备状态发生改变
+2015-08-27 17:00:41 INFO  class:46-设备状态发生改变
+2015-08-27 17:00:41 DEBUG class:264-sleep interrupted

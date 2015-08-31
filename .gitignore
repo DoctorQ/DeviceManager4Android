@@ -1,0 +1,10 @@
+/build/
+test-output/
+.alog
+.alog.*
+.git/
+.gradle/
+.project
+.settings/
+bin/
+

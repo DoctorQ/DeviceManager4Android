@@ -18,7 +18,7 @@ package com.wuba.device;
 import com.android.ddmlib.IDevice;
 
 /**
- * A placeholder {@link IDevice} used by {@link DeviceManager} to allocate when
+ * A placeholder {@link IDevice} used by {@link CtsDeviceManager} to allocate when
  * {@link IDeviceSelection#nullDeviceRequested()} is <code>true</code>
  */
 class NullDevice extends StubDevice {

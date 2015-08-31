@@ -54,7 +54,7 @@ import com.wuba.utils.ConditionPriorityBlockingQueue.IMatcher;
 /**
  * {@inheritDoc}
  */
-public class DeviceManager implements IDeviceManager {
+public class CtsDeviceManager implements IDeviceManager {
 	private static Logger LOG = Logger.getLogger("DeviceManager.class");
 
 	/** max wait time in ms for fastboot devices command to complete */
@@ -73,7 +73,7 @@ public class DeviceManager implements IDeviceManager {
 	 */
 	static final IDeviceSelection ANY_DEVICE_OPTIONS = new DeviceSelectionOptions();
 
-	private static DeviceManager sInstance;
+	private static CtsDeviceManager sInstance;
 
 	private final IDeviceMonitor mDvcMon;
 
@@ -108,7 +108,7 @@ public class DeviceManager implements IDeviceManager {
 	 * Package-private constructor, should only be used by this class and its
 	 * associated unit test. Use {@link #getInstance()} instead.
 	 */
-	DeviceManager() {
+	CtsDeviceManager() {
 		mDvcMon = new DeviceMonitor();
 	}
 
@@ -392,7 +392,7 @@ public class DeviceManager implements IDeviceManager {
 	 */
 	public synchronized static IDeviceManager getInstance() {
 		if (sInstance == null) {
-			sInstance = new DeviceManager();
+			sInstance = new CtsDeviceManager();
 		}
 		return sInstance;
 	}

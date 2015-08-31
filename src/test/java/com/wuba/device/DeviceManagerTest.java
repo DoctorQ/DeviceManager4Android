@@ -20,7 +20,7 @@ public class DeviceManagerTest {
 
 	@BeforeClass
 	public void setUp() throws InterruptedException {
-		deviceManager = DeviceManager.getInstance();
+		deviceManager = CtsDeviceManager.getInstance();
 		deviceManager.init();
 		Thread.sleep(3 * 1000);
 	}

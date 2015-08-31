@@ -91,7 +91,7 @@ public interface IGlobalConfiguration {
 
     /**
      * Set the {@link IDeviceSelection}, replacing any existing values.  This sets a global device
-     * filter on which devices the {@link DeviceManager} can see.
+     * filter on which devices the {@link CtsDeviceManager} can see.
      *
      * @param deviceSelection
      */
@@ -99,7 +99,7 @@ public interface IGlobalConfiguration {
 
     /**
      * Gets the {@link IDeviceSelection} to use from the configuration.  Represents a global filter
-     * on which devices the {@link DeviceManager} can see.
+     * on which devices the {@link CtsDeviceManager} can see.
      *
      * @return the {@link IDeviceSelection} provided in the configuration.
      */

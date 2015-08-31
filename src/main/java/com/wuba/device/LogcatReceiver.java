@@ -17,6 +17,7 @@ package com.wuba.device;
 
 import org.apache.log4j.Logger;
 
+import com.wuba.utils.BackgroundDeviceAction;
 import com.wuba.utils.InputStreamSource;
 
 

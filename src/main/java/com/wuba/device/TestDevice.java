@@ -57,6 +57,7 @@ import com.android.ddmlib.testrunner.ITestRunListener;
 import com.wuba.device.DumpsysPackageParser.PackageInfo;
 import com.wuba.utils.ArrayUtil;
 import com.wuba.utils.ByteArrayInputStreamSource;
+import com.wuba.utils.FileEntryWrapper;
 import com.wuba.utils.FileUtil;
 import com.wuba.utils.IFileEntry;
 import com.wuba.utils.IRunUtil;
@@ -67,7 +68,7 @@ import com.wuba.utils.StreamUtil;
 /**
  * Default implementation of a {@link ITestDevice}
  */
-class TestDevice implements IManagedTestDevice {
+public class TestDevice implements IManagedTestDevice {
 	private static Logger LOG = Logger.getLogger("TestDevice.class");
 	/** the default number of command retry attempts to perform */
 	static final int MAX_RETRY_ATTEMPTS = 2;
@@ -1197,7 +1198,7 @@ class TestDevice implements IManagedTestDevice {
 	 * @param service
 	 * @throws DeviceNotAvailableException
 	 */
-	FileEntry[] getFileChildren(final FileEntry remoteFileEntry)
+	public FileEntry[] getFileChildren(final FileEntry remoteFileEntry)
 			throws DeviceNotAvailableException {
 		// time this operation because its known to hang
 		FileQueryAction action = new FileQueryAction(remoteFileEntry,

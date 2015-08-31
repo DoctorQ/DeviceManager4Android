@@ -27,6 +27,7 @@ import com.android.ddmlib.IDevice;
 import com.android.ddmlib.IShellOutputReceiver;
 import com.android.ddmlib.testrunner.IRemoteAndroidTestRunner;
 import com.android.ddmlib.testrunner.ITestRunListener;
+import com.wuba.utils.CommandResult;
 import com.wuba.utils.IFileEntry;
 import com.wuba.utils.InputStreamSource;
 

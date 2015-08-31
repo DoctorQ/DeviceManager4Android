@@ -26,8 +26,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.wuba.device.CommandResult;
-import com.wuba.device.CommandStatus;
 import com.wuba.utils.IRunUtil.IRunnableResult;
 
 /**

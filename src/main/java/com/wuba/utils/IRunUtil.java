@@ -20,9 +20,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import com.wuba.device.CommandResult;
-import com.wuba.device.CommandStatus;
-
 /**
  * Interface for running timed operations and system commands.
  */

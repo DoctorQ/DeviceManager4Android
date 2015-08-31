@@ -57,6 +57,8 @@ import com.android.ddmlib.testrunner.ITestRunListener;
 import com.wuba.device.DumpsysPackageParser.PackageInfo;
 import com.wuba.utils.ArrayUtil;
 import com.wuba.utils.ByteArrayInputStreamSource;
+import com.wuba.utils.CommandResult;
+import com.wuba.utils.CommandStatus;
 import com.wuba.utils.FileEntryWrapper;
 import com.wuba.utils.FileUtil;
 import com.wuba.utils.IFileEntry;

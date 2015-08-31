@@ -43,8 +43,6 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.log4j.Logger;
 
 import com.android.ddmlib.Log;
-import com.wuba.device.CommandResult;
-import com.wuba.device.CommandStatus;
 import com.wuba.device.FatalHostError;
 
 /**

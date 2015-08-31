@@ -19,6 +19,8 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 
+import com.wuba.utils.VersionedFile;
+
 /**
  * Holds information about the build under test.
  */

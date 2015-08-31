@@ -29,8 +29,6 @@ import java.io.Writer;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipOutputStream;
 
-import com.wuba.device.InputStreamSource;
-
 /**
  * Utility class for managing input streams.
  */

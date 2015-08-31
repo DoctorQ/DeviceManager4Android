@@ -40,12 +40,14 @@ import com.android.ddmlib.EmulatorConsole;
 import com.android.ddmlib.IDevice;
 import com.android.ddmlib.Log;
 import com.android.ddmlib.Log.LogLevel;
-import com.wuba.device.ConditionPriorityBlockingQueue.IMatcher;
 import com.wuba.device.IDeviceMonitor.DeviceLister;
 import com.wuba.utils.ArrayUtil;
+import com.wuba.utils.ConditionPriorityBlockingQueue;
 import com.wuba.utils.IRunUtil;
 import com.wuba.utils.RunUtil;
 import com.wuba.utils.StreamUtil;
+import com.wuba.utils.TableFormatter;
+import com.wuba.utils.ConditionPriorityBlockingQueue.IMatcher;
 
 /**
  * {@inheritDoc}

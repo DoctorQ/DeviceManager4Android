@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import com.android.ddmlib.IDevice;
-import com.wuba.device.ConditionPriorityBlockingQueue.IMatcher;
+import com.wuba.utils.ConditionPriorityBlockingQueue.IMatcher;
 
 /**
  * Interface for device selection criteria.

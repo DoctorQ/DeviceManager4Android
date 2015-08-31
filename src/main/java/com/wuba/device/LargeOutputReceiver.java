@@ -23,6 +23,11 @@ import java.io.InputStream;
 import org.apache.log4j.Logger;
 
 import com.android.ddmlib.IShellOutputReceiver;
+import com.wuba.utils.ByteArrayInputStreamSource;
+import com.wuba.utils.FixedByteArrayOutputStream;
+import com.wuba.utils.InputStreamSource;
+import com.wuba.utils.SizeLimitedOutputStream;
+import com.wuba.utils.SnapshotInputStreamSource;
 import com.wuba.utils.StreamUtil;
 
 /**

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.wuba.device;
+package com.wuba.utils;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -29,7 +29,6 @@ import java.io.OutputStream;
 import java.io.SequenceInputStream;
 
 import com.google.common.io.CountingOutputStream;
-import com.wuba.utils.FileUtil;
 
 /**
  * A thread safe file backed {@link OutputStream} that limits the maximum amount of data that can be

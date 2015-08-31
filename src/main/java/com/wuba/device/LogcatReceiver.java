@@ -17,6 +17,8 @@ package com.wuba.device;
 
 import org.apache.log4j.Logger;
 
+import com.wuba.utils.InputStreamSource;
+
 
 /**
  * Class that collects logcat in background. Continues to capture logcat even if device goes

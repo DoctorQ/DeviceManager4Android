@@ -56,9 +56,11 @@ import com.android.ddmlib.testrunner.IRemoteAndroidTestRunner;
 import com.android.ddmlib.testrunner.ITestRunListener;
 import com.wuba.device.DumpsysPackageParser.PackageInfo;
 import com.wuba.utils.ArrayUtil;
+import com.wuba.utils.ByteArrayInputStreamSource;
 import com.wuba.utils.FileUtil;
 import com.wuba.utils.IFileEntry;
 import com.wuba.utils.IRunUtil;
+import com.wuba.utils.InputStreamSource;
 import com.wuba.utils.RunUtil;
 import com.wuba.utils.StreamUtil;
 

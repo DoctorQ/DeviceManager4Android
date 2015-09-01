@@ -38,6 +38,7 @@ import javax.imageio.ImageIO;
 
 import org.apache.log4j.Logger;
 
+import com.android.chimpchat.adb.AdbChimpDevice;
 import com.android.ddmlib.AdbCommandRejectedException;
 import com.android.ddmlib.CollectingOutputReceiver;
 import com.android.ddmlib.FileListingService;
@@ -144,6 +145,10 @@ public class TestDevice implements IManagedTestDevice {
 	private Boolean mIsEncryptionSupported = null;
 
 	private int retryAttempts = 1;
+
+	private AdbChimpDevice chimpDevice = null;
+
+	private boolean initChimpDevice = false;
 
 	/**
 	 * Interface for a generic device communication attempt.
@@ -600,8 +605,6 @@ public class TestDevice implements IManagedTestDevice {
 		private boolean mIsRunFailure = false;
 		private boolean mIsTestFailure = false;
 
-		
-
 		public void testRunFailed(String message) {
 			mIsRunFailure = true;
 		}
@@ -723,7 +726,7 @@ public class TestDevice implements IManagedTestDevice {
 			throws DeviceNotAvailableException {
 
 		DeviceAction pullAction = new DeviceAction() {
-			
+
 			public boolean run() throws TimeoutException, IOException,
 					AdbCommandRejectedException, SyncException {
 				SyncService syncService = null;
@@ -736,7 +739,8 @@ public class TestDevice implements IManagedTestDevice {
 							SyncService.getNullProgressMonitor());
 					status = true;
 				} catch (SyncException e) {
-					LOG.warn(String.format("Failed to pull %s from %s to %s. Message %s",
+					LOG.warn(String.format(
+							"Failed to pull %s from %s to %s. Message %s",
 							remoteFilePath, getSerialNumber(),
 							localFile.getAbsolutePath(), e.getMessage()));
 					throw e;
@@ -767,7 +771,8 @@ public class TestDevice implements IManagedTestDevice {
 				return localFile;
 			}
 		} catch (IOException e) {
-			LOG.warn(String.format("Encountered IOException while trying to pull '%s': %s",
+			LOG.warn(String.format(
+					"Encountered IOException while trying to pull '%s': %s",
 					remoteFilePath, e));
 		}
 		return null;
@@ -806,7 +811,7 @@ public class TestDevice implements IManagedTestDevice {
 	public boolean pushFile(final File localFile, final String remoteFilePath)
 			throws DeviceNotAvailableException {
 		DeviceAction pushAction = new DeviceAction() {
-			
+
 			public boolean run() throws TimeoutException, IOException,
 					AdbCommandRejectedException, SyncException {
 				SyncService syncService = null;
@@ -818,7 +823,8 @@ public class TestDevice implements IManagedTestDevice {
 							SyncService.getNullProgressMonitor());
 					status = true;
 				} catch (SyncException e) {
-					LOG.warn(String.format("Failed to push %s to %s on device %s. Message %s",
+					LOG.warn(String.format(
+							"Failed to push %s to %s on device %s. Message %s",
 							localFile.getAbsolutePath(), remoteFilePath,
 							getSerialNumber(), e.getMessage()));
 					throw e;
@@ -885,8 +891,9 @@ public class TestDevice implements IManagedTestDevice {
 			return available;
 		}
 
-		LOG.error(String.format("free space command output \"%s\" did not match expected patterns",
-				output));
+		LOG.error(String
+				.format("free space command output \"%s\" did not match expected patterns",
+						output));
 		return 0;
 	}
 
@@ -1062,12 +1069,14 @@ public class TestDevice implements IManagedTestDevice {
 	public boolean pushDir(File localFileDir, String deviceFilePath)
 			throws DeviceNotAvailableException {
 		if (!localFileDir.isDirectory()) {
-			LOG.info(String.format("file %s is not a directory", localFileDir.getAbsolutePath()));
+			LOG.info(String.format("file %s is not a directory",
+					localFileDir.getAbsolutePath()));
 			return false;
 		}
 		File[] childFiles = localFileDir.listFiles();
 		if (childFiles == null) {
-			LOG.info(String.format("Could not read files in %s", localFileDir.getAbsolutePath()));
+			LOG.info(String.format("Could not read files in %s",
+					localFileDir.getAbsolutePath()));
 			return false;
 		}
 		for (File childFile : childFiles) {
@@ -1097,10 +1106,12 @@ public class TestDevice implements IManagedTestDevice {
 			throw new IllegalArgumentException(
 					"syncFiles does not take null arguments");
 		}
-		LOG.info(String.format("Syncing %s to %s on device %s", localFileDir.getAbsolutePath(),
-				deviceFilePath, getSerialNumber()));
+		LOG.info(String.format("Syncing %s to %s on device %s",
+				localFileDir.getAbsolutePath(), deviceFilePath,
+				getSerialNumber()));
 		if (!localFileDir.isDirectory()) {
-			LOG.info(String.format("file %s is not a directory", localFileDir.getAbsolutePath()));
+			LOG.info(String.format("file %s is not a directory",
+					localFileDir.getAbsolutePath()));
 			return false;
 		}
 		// get the real destination path. This is done because underlying
@@ -1114,7 +1125,8 @@ public class TestDevice implements IManagedTestDevice {
 		}
 		IFileEntry remoteFileEntry = getFileEntry(deviceFilePath);
 		if (remoteFileEntry == null) {
-			LOG.info(String.format("Could not find remote file entry %s ", deviceFilePath));
+			LOG.info(String.format("Could not find remote file entry %s ",
+					deviceFilePath));
 			return false;
 		}
 
@@ -1134,8 +1146,9 @@ public class TestDevice implements IManagedTestDevice {
 	private boolean syncFiles(File localFileDir,
 			final IFileEntry remoteFileEntry)
 			throws DeviceNotAvailableException {
-		LOG.debug(String.format("Syncing %s to %s on %s", localFileDir.getAbsolutePath(),
-				remoteFileEntry.getFullPath(), getSerialNumber()));
+		LOG.debug(String.format("Syncing %s to %s on %s",
+				localFileDir.getAbsolutePath(), remoteFileEntry.getFullPath(),
+				getSerialNumber()));
 		// find newer files to sync
 		File[] localFiles = localFileDir.listFiles(new NoHiddenFilesFilter());
 		ArrayList<String> filePathsToSync = new ArrayList<String>();
@@ -1153,7 +1166,8 @@ public class TestDevice implements IManagedTestDevice {
 					return false;
 				}
 			} else if (isNewer(localFile, entry)) {
-				LOG.debug(String.format("Detected newer file %s", localFile.getAbsolutePath()));
+				LOG.debug(String.format("Detected newer file %s",
+						localFile.getAbsolutePath()));
 				filePathsToSync.add(localFile.getAbsolutePath());
 			}
 		}
@@ -1165,7 +1179,7 @@ public class TestDevice implements IManagedTestDevice {
 		final String files[] = filePathsToSync
 				.toArray(new String[filePathsToSync.size()]);
 		DeviceAction syncAction = new DeviceAction() {
-			
+
 			public boolean run() throws TimeoutException, IOException,
 					AdbCommandRejectedException, SyncException {
 				SyncService syncService = null;
@@ -1176,9 +1190,10 @@ public class TestDevice implements IManagedTestDevice {
 							SyncService.getNullProgressMonitor());
 					status = true;
 				} catch (SyncException e) {
-					LOG.warn(String.format("Failed to sync files to %s on device %s. Message %s",
-							remoteFileEntry.getFullPath(), getSerialNumber(),
-							e.getMessage()));
+					LOG.warn(String
+							.format("Failed to sync files to %s on device %s. Message %s",
+									remoteFileEntry.getFullPath(),
+									getSerialNumber(), e.getMessage()));
 					throw e;
 				} finally {
 					if (syncService != null) {
@@ -1261,8 +1276,10 @@ public class TestDevice implements IManagedTestDevice {
 			// modified files get synced
 			return localFile.lastModified() > (remoteDate.getTime() - 60 * 1000);
 		} catch (ParseException e) {
-			LOG.info(String.format("Error converting remote time stamp %s for %s on device %s",
-					entryTimeString, entry.getFullPath(), getSerialNumber()));
+			LOG.info(String
+					.format("Error converting remote time stamp %s for %s on device %s",
+							entryTimeString, entry.getFullPath(),
+							getSerialNumber()));
 		}
 		// sync file by default
 		return true;
@@ -1387,8 +1404,9 @@ public class TestDevice implements IManagedTestDevice {
 							"data transfer failure (Protocol error)")
 					|| fastbootResult.getStderr().contains(
 							"status read failed (No such device)")) {
-				LOG.warn(String.format("Bad fastboot response from device %s. stderr: %s. Entering recovery",
-						getSerialNumber(), fastbootResult.getStderr()));
+				LOG.warn(String
+						.format("Bad fastboot response from device %s. stderr: %s. Entering recovery",
+								getSerialNumber(), fastbootResult.getStderr()));
 				return true;
 			}
 		}
@@ -1488,7 +1506,8 @@ public class TestDevice implements IManagedTestDevice {
 			} catch (AdbCommandRejectedException e) {
 				logDeviceActionException(actionDescription, e);
 			} catch (ShellCommandUnresponsiveException e) {
-				LOG.warn(String.format("Device %s stopped responding when attempting %s",
+				LOG.warn(String.format(
+						"Device %s stopped responding when attempting %s",
 						getSerialNumber(), actionDescription));
 			}
 			// TODO: currently treat all exceptions the same. In future consider
@@ -1515,9 +1534,9 @@ public class TestDevice implements IManagedTestDevice {
 	 *            the exception
 	 */
 	private void logDeviceActionException(String actionDescription, Exception e) {
-		LOG.warn(String.format("%s (%s) when attempting %s on device %s", e.getClass()
-				.getSimpleName(), getExceptionMessage(e), actionDescription,
-				getSerialNumber()));
+		LOG.warn(String.format("%s (%s) when attempting %s on device %s", e
+				.getClass().getSimpleName(), getExceptionMessage(e),
+				actionDescription, getSerialNumber()));
 	}
 
 	/**
@@ -1554,7 +1573,8 @@ public class TestDevice implements IManagedTestDevice {
 
 	public void recoverDevice() throws DeviceNotAvailableException {
 		if (mRecoveryMode.equals(RecoveryMode.NONE)) {
-			LOG.info(String.format("Skipping recovery on %s", getSerialNumber()));
+			LOG.info(String
+					.format("Skipping recovery on %s", getSerialNumber()));
 			getRunUtil().sleep(NONE_RECOVERY_MODE_DELAY);
 			return;
 		}
@@ -1594,15 +1614,19 @@ public class TestDevice implements IManagedTestDevice {
 	 */
 	private void recoverDeviceFromBootloader()
 			throws DeviceNotAvailableException {
-		LOG.info(String.format("Attempting recovery on %s in bootloader", getSerialNumber()));
+		LOG.info(String.format("Attempting recovery on %s in bootloader",
+				getSerialNumber()));
 		mRecovery.recoverDeviceBootloader(mMonitor);
-		LOG.info(String.format("Bootloader recovery successful for %s", getSerialNumber()));
+		LOG.info(String.format("Bootloader recovery successful for %s",
+				getSerialNumber()));
 	}
 
 	private void recoverDeviceInRecovery() throws DeviceNotAvailableException {
-		LOG.info(String.format("Attempting recovery on %s in recovery", getSerialNumber()));
+		LOG.info(String.format("Attempting recovery on %s in recovery",
+				getSerialNumber()));
 		mRecovery.recoverDeviceRecovery(mMonitor);
-		LOG.info(String.format("Recovery mode recovery successful for %s", getSerialNumber()));
+		LOG.info(String.format("Recovery mode recovery successful for %s",
+				getSerialNumber()));
 	}
 
 	/**
@@ -1611,7 +1635,8 @@ public class TestDevice implements IManagedTestDevice {
 
 	public void startLogcat() {
 		if (mLogcatReceiver != null) {
-			LOG.debug(String.format("Already capturing logcat for %s, ignoring",
+			LOG.debug(String.format(
+					"Already capturing logcat for %s, ignoring",
 					getSerialNumber()));
 			return;
 		}
@@ -1635,8 +1660,9 @@ public class TestDevice implements IManagedTestDevice {
 
 	public InputStreamSource getLogcat() {
 		if (mLogcatReceiver == null) {
-			LOG.warn(String.format("Not capturing logcat for %s in background, returning a logcat dump",
-					getSerialNumber()));
+			LOG.warn(String
+					.format("Not capturing logcat for %s in background, returning a logcat dump",
+							getSerialNumber()));
 			return getLogcatDump();
 		} else {
 			return mLogcatReceiver.getLogcatData();
@@ -1649,8 +1675,9 @@ public class TestDevice implements IManagedTestDevice {
 
 	public InputStreamSource getLogcat(int maxBytes) {
 		if (mLogcatReceiver == null) {
-			LOG.warn(String.format("Not capturing logcat for %s in background, returning a logcat dump "
-					+ "ignoring size", getSerialNumber()));
+			LOG.warn(String.format(
+					"Not capturing logcat for %s in background, returning a logcat dump "
+							+ "ignoring size", getSerialNumber()));
 			return getLogcatDump();
 		} else {
 			return mLogcatReceiver.getLogcatData(maxBytes);
@@ -1672,17 +1699,18 @@ public class TestDevice implements IManagedTestDevice {
 					receiver);
 			output = receiver.getOutput();
 		} catch (IOException e) {
-			LOG.warn(String.format("Failed to get logcat dump from %s: ", getSerialNumber(),
-					e.getMessage()));
+			LOG.warn(String.format("Failed to get logcat dump from %s: ",
+					getSerialNumber(), e.getMessage()));
 		} catch (TimeoutException e) {
-			LOG.warn(String.format("Failed to get logcat dump from %s: timeout",
+			LOG.warn(String.format(
+					"Failed to get logcat dump from %s: timeout",
 					getSerialNumber()));
 		} catch (AdbCommandRejectedException e) {
-			LOG.warn(String.format("Failed to get logcat dump from %s: ", getSerialNumber(),
-					e.getMessage()));
+			LOG.warn(String.format("Failed to get logcat dump from %s: ",
+					getSerialNumber(), e.getMessage()));
 		} catch (ShellCommandUnresponsiveException e) {
-			LOG.warn(String.format("Failed to get logcat dump from %s: ", getSerialNumber(),
-					e.getMessage()));
+			LOG.warn(String.format("Failed to get logcat dump from %s: ",
+					getSerialNumber(), e.getMessage()));
 		}
 		return new ByteArrayInputStreamSource(output.getBytes());
 	}
@@ -1696,7 +1724,8 @@ public class TestDevice implements IManagedTestDevice {
 			mLogcatReceiver.stop();
 			mLogcatReceiver = null;
 		} else {
-			LOG.warn(String.format("Attempting to stop logcat when not capturing for %s",
+			LOG.warn(String.format(
+					"Attempting to stop logcat when not capturing for %s",
 					getSerialNumber()));
 		}
 	}
@@ -1726,7 +1755,8 @@ public class TestDevice implements IManagedTestDevice {
 			// Log, but don't throw, so the caller can get the bugreport
 			// contents even if the device
 			// goes away
-			LOG.info(String.format("Device %s became unresponsive while retrieving bugreport",
+			LOG.info(String.format(
+					"Device %s became unresponsive while retrieving bugreport",
 					getSerialNumber()));
 		}
 		// System.out.println(new String(receiver.getOutput()));
@@ -1798,8 +1828,6 @@ public class TestDevice implements IManagedTestDevice {
 		return pngData;
 	}
 
-	
-
 	/**
 	 * Check that device has network connectivity.
 	 * <p/>
@@ -1816,7 +1844,6 @@ public class TestDevice implements IManagedTestDevice {
 		}
 		return false;
 	}
-
 
 	/**
 	 * {@inheritDoc}
@@ -1837,7 +1864,8 @@ public class TestDevice implements IManagedTestDevice {
 			// it might be the case that the process keeps showing new dialogs
 			// immediately after
 			// clearing. There's really no workaround, but to dump an error
-			LOG.info(String.format("error dialogs still exist on %s.", getSerialNumber()));
+			LOG.info(String.format("error dialogs still exist on %s.",
+					getSerialNumber()));
 			return false;
 		}
 		return true;
@@ -1872,8 +1900,8 @@ public class TestDevice implements IManagedTestDevice {
 
 	private void doClearDialogs(int numDialogs)
 			throws DeviceNotAvailableException {
-		LOG.info(String.format("Attempted to clear %d dialogs on %s", numDialogs,
-				getSerialNumber()));
+		LOG.info(String.format("Attempted to clear %d dialogs on %s",
+				numDialogs, getSerialNumber()));
 		for (int i = 0; i < numDialogs; i++) {
 			// send DPAD_CENTER
 			executeShellCommand(DISMISS_DIALOG_CMD);
@@ -1924,14 +1952,17 @@ public class TestDevice implements IManagedTestDevice {
 			throw new UnsupportedOperationException(
 					"Fastboot is not available and cannot reboot into bootloader");
 		}
-		LOG.info(String.format("Rebooting device %s in state %s into bootloader",
+		LOG.info(String.format(
+				"Rebooting device %s in state %s into bootloader",
 				getSerialNumber(), getDeviceState()));
 		if (TestDeviceState.FASTBOOT.equals(getDeviceState())) {
-			LOG.info(String.format("device %s already in fastboot. Rebooting anyway",
+			LOG.info(String.format(
+					"device %s already in fastboot. Rebooting anyway",
 					getSerialNumber()));
 			executeFastbootCommand("reboot-bootloader");
 		} else {
-			LOG.info(String.format("Booting device %s into bootloader", getSerialNumber()));
+			LOG.info(String.format("Booting device %s into bootloader",
+					getSerialNumber()));
 			doAdbRebootBootloader();
 		}
 		if (!mMonitor.waitForDeviceBootloader(mOptions.getFastbootTimeout())) {
@@ -1944,7 +1975,8 @@ public class TestDevice implements IManagedTestDevice {
 			getIDevice().reboot("bootloader");
 			return;
 		} catch (IOException e) {
-			LOG.warn(String.format("IOException '%s' when rebooting %s into bootloader",
+			LOG.warn(String.format(
+					"IOException '%s' when rebooting %s into bootloader",
 					e.getMessage(), getSerialNumber()));
 			recoverDeviceFromBootloader();
 			// no need to try multiple times - if recoverDeviceFromBootloader()
@@ -1952,7 +1984,8 @@ public class TestDevice implements IManagedTestDevice {
 			// successfully in bootloader mode
 
 		} catch (TimeoutException e) {
-			LOG.warn(String.format("TimeoutException when rebooting %s into bootloader",
+			LOG.warn(String.format(
+					"TimeoutException when rebooting %s into bootloader",
 					getSerialNumber()));
 			recoverDeviceFromBootloader();
 			// no need to try multiple times - if recoverDeviceFromBootloader()
@@ -1960,8 +1993,9 @@ public class TestDevice implements IManagedTestDevice {
 			// successfully in bootloader mode
 
 		} catch (AdbCommandRejectedException e) {
-			LOG.warn(String.format("AdbCommandRejectedException '%s' when rebooting %s into bootloader",
-					e.getMessage(), getSerialNumber()));
+			LOG.warn(String
+					.format("AdbCommandRejectedException '%s' when rebooting %s into bootloader",
+							e.getMessage(), getSerialNumber()));
 			recoverDeviceFromBootloader();
 			// no need to try multiple times - if recoverDeviceFromBootloader()
 			// succeeds device is
@@ -2018,8 +2052,10 @@ public class TestDevice implements IManagedTestDevice {
 
 	public void rebootIntoRecovery() throws DeviceNotAvailableException {
 		if (TestDeviceState.FASTBOOT == getDeviceState()) {
-			LOG.warn(String.format("device %s in fastboot when requesting boot to recovery. "
-					+ "Rebooting to userspace first.", getSerialNumber()));
+			LOG.warn(String.format(
+					"device %s in fastboot when requesting boot to recovery. "
+							+ "Rebooting to userspace first.",
+					getSerialNumber()));
 			rebootUntilOnline();
 		}
 		doAdbReboot("recovery");
@@ -2044,7 +2080,8 @@ public class TestDevice implements IManagedTestDevice {
 	void doReboot() throws DeviceNotAvailableException,
 			UnsupportedOperationException {
 		if (TestDeviceState.FASTBOOT == getDeviceState()) {
-			LOG.info(String.format("device %s in fastboot. Rebooting to userspace.",
+			LOG.info(String.format(
+					"device %s in fastboot. Rebooting to userspace.",
 					getSerialNumber()));
 			executeFastbootCommand("reboot");
 		} else {
@@ -2080,7 +2117,8 @@ public class TestDevice implements IManagedTestDevice {
 		// before the operation
 		if (!mMonitor.waitForDeviceNotAvailable(time)) {
 			// above check is flaky, ignore till better solution is found
-			LOG.warn(String.format("Did not detect device %s becoming unavailable after %s",
+			LOG.warn(String.format(
+					"Did not detect device %s becoming unavailable after %s",
 					getSerialNumber(), operationDesc));
 		}
 	}
@@ -2094,7 +2132,8 @@ public class TestDevice implements IManagedTestDevice {
 		// to see
 		// if its necessary or not
 		if (isAdbRoot()) {
-			LOG.info(String.format("adb is already running as root on %s", getSerialNumber()));
+			LOG.info(String.format("adb is already running as root on %s",
+					getSerialNumber()));
 			return true;
 		}
 		LOG.info(String.format("adb root on device %s", getSerialNumber()));
@@ -2109,8 +2148,9 @@ public class TestDevice implements IManagedTestDevice {
 			if (isAdbRoot()) {
 				return true;
 			}
-			LOG.warn(String.format("'adb root' on %s unsuccessful on attempt %d of %d. Output: '%s'",
-					getSerialNumber(), i, attempts, output));
+			LOG.warn(String
+					.format("'adb root' on %s unsuccessful on attempt %d of %d. Output: '%s'",
+							getSerialNumber(), i, attempts, output));
 		}
 		return false;
 	}
@@ -2154,7 +2194,8 @@ public class TestDevice implements IManagedTestDevice {
 			timeout = ENCRYPTION_WIPE_TIMEOUT;
 		}
 
-		LOG.info(String.format("Encrypting device %s via %s", getSerialNumber(), encryptMethod));
+		LOG.info(String.format("Encrypting device %s via %s",
+				getSerialNumber(), encryptMethod));
 		executeShellCommand(String.format("vdc cryptfs enablecrypto %s \"%s\"",
 				encryptMethod, ENCRYPTION_PASSWORD), new NullOutputReceiver(),
 				timeout, 1);
@@ -2179,7 +2220,8 @@ public class TestDevice implements IManagedTestDevice {
 		}
 
 		if (!isDeviceEncrypted()) {
-			LOG.debug(String.format("Device %s is already unencrypted, skipping",
+			LOG.debug(String.format(
+					"Device %s is already unencrypted, skipping",
 					getSerialNumber()));
 			return true;
 		}
@@ -2224,22 +2266,25 @@ public class TestDevice implements IManagedTestDevice {
 		}
 
 		if (format) {
-			LOG.debug(String.format("Need to format sdcard for device %s", getSerialNumber()));
+			LOG.debug(String.format("Need to format sdcard for device %s",
+					getSerialNumber()));
 
 			RecoveryMode cachedRecoveryMode = getRecoveryMode();
 			setRecoveryMode(RecoveryMode.ONLINE);
 
 			output = executeShellCommand("vdc volume format sdcard");
 			if (output == null) {
-				LOG.info(String.format("Command vdc volume format sdcard failed will no output for device %s:\n%s",
-						getSerialNumber()));
+				LOG.info(String
+						.format("Command vdc volume format sdcard failed will no output for device %s:\n%s",
+								getSerialNumber()));
 				setRecoveryMode(cachedRecoveryMode);
 				return false;
 			}
 			splitOutput = output.split("\r\n");
 			if (!splitOutput[splitOutput.length - 1].startsWith("200 ")) {
-				LOG.info(String.format("Command vdc volume format sdcard failed for device %s:\n%s",
-						getSerialNumber(), output));
+				LOG.info(String
+						.format("Command vdc volume format sdcard failed for device %s:\n%s",
+								getSerialNumber(), output));
 				setRecoveryMode(cachedRecoveryMode);
 				return false;
 			}
@@ -2265,7 +2310,8 @@ public class TestDevice implements IManagedTestDevice {
 		}
 
 		if (!isDeviceEncrypted()) {
-			LOG.debug(String.format("Device %s is not encrypted, skipping", getSerialNumber()));
+			LOG.debug(String.format("Device %s is not encrypted, skipping",
+					getSerialNumber()));
 			return true;
 		}
 
@@ -2295,8 +2341,9 @@ public class TestDevice implements IManagedTestDevice {
 
 			if (!output.isEmpty()
 					&& !(output.startsWith("200 ") && output.endsWith(" 0"))) {
-				LOG.info(String.format("checkpw gave output '%s' while trying to unlock device %s",
-						output, getSerialNumber()));
+				LOG.info(String
+						.format("checkpw gave output '%s' while trying to unlock device %s",
+								output, getSerialNumber()));
 				return false;
 			}
 
@@ -2304,7 +2351,8 @@ public class TestDevice implements IManagedTestDevice {
 		} while (output.isEmpty() && ++i < 3);
 
 		if (output.isEmpty()) {
-			LOG.info(String.format("checkpw gave no output while trying to unlock device %s"));
+			LOG.info(String
+					.format("checkpw gave no output while trying to unlock device %s"));
 		}
 
 		// Restart the framework. Output will be:
@@ -2315,8 +2363,9 @@ public class TestDevice implements IManagedTestDevice {
 		output = executeShellCommand("vdc cryptfs restart").trim();
 
 		if (!(output.startsWith("200 ") && output.endsWith(" 0"))) {
-			LOG.info(String.format("restart gave output '%s' while trying to unlock device %s",
-					output, getSerialNumber()));
+			LOG.info(String
+					.format("restart gave output '%s' while trying to unlock device %s",
+							output, getSerialNumber()));
 			return false;
 		}
 
@@ -2333,7 +2382,8 @@ public class TestDevice implements IManagedTestDevice {
 		String output = getPropertySync("ro.crypto.state");
 
 		if (output == null && isEncryptionSupported()) {
-			LOG.info(String.format("Property ro.crypto.state is null on device %s",
+			LOG.info(String.format(
+					"Property ro.crypto.state is null on device %s",
 					getSerialNumber()));
 		}
 
@@ -2489,7 +2539,8 @@ public class TestDevice implements IManagedTestDevice {
 				return;
 			}
 			mState = deviceState;
-			LOG.debug(String.format("Device %s state is now %s", getSerialNumber(), deviceState));
+			LOG.debug(String.format("Device %s state is now %s",
+					getSerialNumber(), deviceState));
 			mMonitor.setState(deviceState);
 		}
 	}
@@ -2513,7 +2564,8 @@ public class TestDevice implements IManagedTestDevice {
 	public String switchToAdbTcp() throws DeviceNotAvailableException {
 		String ipAddress = getIpAddress();
 		if (ipAddress == null) {
-			LOG.info(String.format("connectToTcp failed: Device %s doesn't have an IP",
+			LOG.info(String.format(
+					"connectToTcp failed: Device %s doesn't have an IP",
 					getSerialNumber()));
 			return null;
 		}
@@ -2591,8 +2643,9 @@ public class TestDevice implements IManagedTestDevice {
 				// Package parsing can fail if package manager is currently
 				// down. throw exception
 				// to retry
-				LOG.warn(String.format("no packages found from dumpsys package p. output: '%s'",
-						output));
+				LOG.warn(String
+						.format("no packages found from dumpsys package p. output: '%s'",
+								output));
 				throw new IOException();
 			}
 			return true;
@@ -2611,7 +2664,8 @@ public class TestDevice implements IManagedTestDevice {
 		Set<String> pkgs = new HashSet<String>();
 		for (PackageInfo pkgInfo : action.mPkgInfos) {
 			if (!pkgInfo.isSystemApp || pkgInfo.isUpdatedSystemApp) {
-				LOG.debug(String.format("Found uninstallable package %s", pkgInfo.packageName));
+				LOG.debug(String.format("Found uninstallable package %s",
+						pkgInfo.packageName));
 				pkgs.add(pkgInfo.packageName);
 			}
 		}
@@ -2647,11 +2701,45 @@ public class TestDevice implements IManagedTestDevice {
 		return mOptions;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.wuba.device.ITestDevice#getIpAddress()
 	 */
 	public String getIpAddress() throws DeviceNotAvailableException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.wuba.device.ITestDevice#startChimpDevice()
+	 */
+	public void startChimpDevice() throws DeviceNotAvailableException {
+		if (chimpDevice == null) {
+			chimpDevice = new AdbChimpDevice(mIDevice);
+			initChimpDevice = true;
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.wuba.device.ITestDevice#stopChimpDevice()
+	 */
+	public void stopChimpDevice() throws DeviceNotAvailableException {
+		// TODO Auto-generated method stub
+		checkInitChimpDevice();
+		if (chimpDevice != null) {
+			chimpDevice.dispose();
+		}
+	}
+
+	private void checkInitChimpDevice() {
+		if (!initChimpDevice) {
+			throw new IllegalStateException(
+					"ChimpDevice has not been initialized");
+		}
 	}
 }

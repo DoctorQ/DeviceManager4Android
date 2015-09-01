@@ -923,6 +923,7 @@ public class CtsDeviceManager implements IDeviceManager {
 		int i = 0;
 		for (IDevice device : availableDeviceSerials) {
 			devices[i] = device;
+			i++;
 		}
 		return devices;
 	}

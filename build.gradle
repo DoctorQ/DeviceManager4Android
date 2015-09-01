@@ -20,6 +20,7 @@ dependencies {
     compile 'org.testng:testng:6.8.13'
     compile 'log4j:log4j:1.2.17'
     compile 'org.apache.commons:commons-compress:1.10'
+    compile 'net.sf.jali:chimpchat:24.3'
 }
 
 test {
